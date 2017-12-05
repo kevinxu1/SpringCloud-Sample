@@ -1,0 +1,41 @@
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+
+allprojects {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+subprojects {
+    apply plugin: 'java'
+    group = 'com.kevin'
+
+    ext {
+        springCloudVersion = '1.3.5.RELEASE'
+    }
+
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+
+    configurations.all {
+        resolutionStrategy {
+            cacheChangingModulesFor 0, 'seconds'
+            exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+        }
+    }
+
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+        testCompile group: 'org.springframework', name: 'spring-test', version: '4.3.10.RELEASE'
+    }
+}

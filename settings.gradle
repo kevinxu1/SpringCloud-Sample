@@ -1,0 +1,6 @@
+rootProject.name = 'cloud'
+include 'register-center'
+include 'user'
+include 'common'
+include 'config'
+
