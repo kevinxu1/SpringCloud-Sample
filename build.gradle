@@ -14,7 +14,7 @@ subprojects {
     group = 'com.kevin'
 
     ext {
-        springCloudVersion = '1.3.5.RELEASE'
+        springCloudVersion = '1.4.5.RELEASE'
     }
 
     repositories {
@@ -35,7 +35,11 @@ subprojects {
     }
 
     dependencies {
+        compile group: 'com.google.code.gson', name: 'gson', version: '2.8.5'
         testCompile group: 'junit', name: 'junit', version: '4.12'
         testCompile group: 'org.springframework', name: 'spring-test', version: '4.3.10.RELEASE'
+
     }
+
+
 }

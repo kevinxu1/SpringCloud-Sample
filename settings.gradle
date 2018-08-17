@@ -3,4 +3,6 @@ include 'register-center'
 include 'user'
 include 'common'
 include 'config'
+include 'department'
+include 'apigateway'
 

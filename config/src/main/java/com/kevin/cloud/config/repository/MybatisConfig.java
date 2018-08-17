@@ -16,48 +16,45 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 import javax.sql.DataSource;
 
 /**
- * Created by Kevin.xu
+ * @author Kevin.xu
+ * @date 2018/8/6/1:01
+ * @description :配置Mybatis
  */
 @Configuration
 @EnableTransactionManagement
 public class MybatisConfig implements TransactionManagementConfigurer {
 
-    @Autowired
-    DataSource dataSource;
+  @Autowired
+  private DataSource dataSource;
 
 
-    @Bean(name = "sqlSessionFactory")
-    public SqlSessionFactory sqlSessionFactoryBean() {
-        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(dataSource);
-        bean.setTypeAliasesPackage("com.kevin.**");
-        //添加XML目录
-        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        try {
-            bean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
-            return bean.getObject();
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
+  @Bean(name = "sqlSessionFactory")
+  public SqlSessionFactory sqlSessionFactoryBean() {
+    SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+    bean.setDataSource(dataSource);
+    bean.setTypeAliasesPackage("com.kevin.**");
+    //添加XML目录
+    ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+    try {
+      bean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
+      return bean.getObject();
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new RuntimeException(e);
     }
+  }
 
-    public String value(String path) {
+  @Bean
+  public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
+    return new SqlSessionTemplate(sqlSessionFactory);
+  }
 
-        return null;
-    }
-
-    @Bean
-    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
-        return new SqlSessionTemplate(sqlSessionFactory);
-    }
-
-    /**
-     * 配置事务
-     */
-    @Bean
-    @Override
-    public PlatformTransactionManager annotationDrivenTransactionManager() {
-        return new DataSourceTransactionManager(dataSource);
-    }
+  /**
+   * 配置事务
+   */
+  @Bean
+  @Override
+  public PlatformTransactionManager annotationDrivenTransactionManager() {
+    return new DataSourceTransactionManager(dataSource);
+  }
 }

@@ -13,7 +13,9 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 
 /**
- * Created by Kevin.xu
+ * @author Kevin.xu
+ * @date 2018/8/6/1:01
+ * @description :配置DataSource
  */
 @Configuration
 @EnableConfigurationProperties(DruidProperties.class)

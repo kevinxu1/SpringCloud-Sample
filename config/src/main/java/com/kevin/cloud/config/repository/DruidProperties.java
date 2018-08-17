@@ -3,7 +3,9 @@ package com.kevin.cloud.config.repository;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * Created by Kevin.xu
+ * @author Kevin.xu
+ * @date 2018/8/6/1:01
+ * @description :配置读取yml 类
  */
 @ConfigurationProperties(prefix = "druid")
 public class DruidProperties {

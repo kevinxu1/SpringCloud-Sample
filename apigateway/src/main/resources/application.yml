@@ -1,0 +1,17 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 80
+spring:
+  application:
+    name: APIGATEWAY
+
+zuul:
+  routes:
+    service-department-hi:
+      path: /*
+      serviceId: service-department-hi
+      serviceId: service-user-hi
+  stripPrefix: false
