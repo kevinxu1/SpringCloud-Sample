@@ -5,4 +5,14 @@ include 'common'
 include 'config'
 include 'department'
 include 'apigateway'
+include 'department:interface'
+include 'department:service'
+include 'user:interface'
+include 'user:service'
 
+
+project(':user:interface').name = 'cloud-user-interface'
+project(':user:service').name = 'cloud-user-service'
+
+project(':department:interface').name = 'cloud-department-interface'
+project(':department:service').name = 'cloud-department-service'
