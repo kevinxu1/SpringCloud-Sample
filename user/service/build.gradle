@@ -2,4 +2,6 @@ dependencies {
     compile project(':common')
     compile project(':config')
     compile project(':user:cloud-user-interface')
+    compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+
 }

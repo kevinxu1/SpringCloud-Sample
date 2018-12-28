@@ -12,4 +12,9 @@ public class CloudBusinessException extends Exception {
         this.code = businessException.getCode();
         this.message = businessException.getMessage();
     }
+
+    public CloudBusinessException(String message) {
+        super(message);
+        this.message = message;
+    }
 }

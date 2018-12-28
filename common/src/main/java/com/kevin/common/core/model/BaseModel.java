@@ -22,6 +22,9 @@ import lombok.ToString;
 public class BaseModel implements Serializable {
 
   private String id;
+  private String sysFrom;
+  private String createdBy;
+  private String updatedBy;
   private Date createdDate;
   private Date updatedDate;
   private int status;

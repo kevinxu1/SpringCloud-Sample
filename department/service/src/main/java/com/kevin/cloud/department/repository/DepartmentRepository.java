@@ -1,7 +1,10 @@
 package com.kevin.cloud.department.repository;
 
+import com.github.pagehelper.PageInfo;
 import com.kevin.cloud.department.api.model.Department;
+import java.util.List;
 import java.util.Map;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -11,6 +14,9 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface DepartmentRepository {
-   Department getDepartmentByDepartment(Map<String,Object> map);
+
+  Department getDepartmentByDepartment(Map<String, Object> map);
+
+  List<Department> selectByPageNumSize();
 
 }

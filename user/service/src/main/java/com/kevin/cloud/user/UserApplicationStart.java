@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 @EnableEurekaClient
 @EnableAutoConfiguration
 @Configuration
-@ComponentScan(basePackages = {"com.kevin.cloud.user", "com.kevin.cloud.user.repository", "com.kevin.cloud.config.repository"})
+@ComponentScan(basePackages = {"com.kevin.cloud.user", "com.kevin.cloud.user.repository", "com.kevin.common.config"})
 @SpringBootApplication
 public class UserApplicationStart {
     public static void main(String[] args) {

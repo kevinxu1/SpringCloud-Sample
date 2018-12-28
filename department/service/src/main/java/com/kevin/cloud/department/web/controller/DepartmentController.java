@@ -1,5 +1,6 @@
 package com.kevin.cloud.department.web.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.kevin.cloud.department.api.model.Department;
 import com.kevin.cloud.department.service.DepartmentService;
 import com.kevin.common.core.exception.CloudBusinessException;
@@ -22,14 +23,15 @@ public class DepartmentController {
   private DepartmentService departmentService;
 
   @GetMapping()
-  public Department getDepartmentById() {
-    Department department = new Department();
-    department.setId("1");
+  public PageInfo getDepartmentById() {
+    PageInfo pageInfo=new PageInfo();
+    pageInfo.setPageNum(0);
+    pageInfo.setPageSize(1);
     try {
-      department = departmentService.getDepartmentByDepartment(department);
+      pageInfo = departmentService.getDepartmentByPage(pageInfo);
     } catch (CloudBusinessException e) {
       e.printStackTrace();
     }
-    return department;
+    return pageInfo;
   }
 }

@@ -14,4 +14,9 @@
     SELECT * FROM DEPARTMENT WHERE ID=#{id};
   </select>
 
+
+  <select id="selectByPageNumSize"  resultMap="DepartmentResult">
+    SELECT * FROM DEPARTMENT
+  </select>
+
 </mapper>

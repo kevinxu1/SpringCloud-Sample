@@ -1,8 +1,7 @@
 package com.kevin.cloud.department.service;
 
+import com.github.pagehelper.PageInfo;
 import com.kevin.cloud.department.api.model.Department;
-
-import com.kevin.cloud.user.api.model.User;
 import com.kevin.common.core.exception.CloudBusinessException;
 import java.util.List;
 
@@ -14,43 +13,39 @@ import java.util.List;
 public interface DepartmentService {
 
   /**
-   * 添加部门信息
-   *
-   * @param department 对象
+   * 添加部门
+   * @param department
+   * @throws CloudBusinessException
    */
   void addDepartment(Department department) throws CloudBusinessException;
 
   /**
-   * 添加部门用户
-   * @param users 用户集合
+   * 添加部门集合
+   * @param departments
    * @throws CloudBusinessException
    */
-  void addDepartmentUsers(List<User> users) throws CloudBusinessException;
-
-
-  /**
-   * 修改部门信息
-   *
-   * @param department 对象
-   */
-  void updateDepartment(Department department) throws CloudBusinessException;
+  void addDepartments(List<Department> departments) throws CloudBusinessException;
 
   /**
-   * 查询部门信息
-   *
-   * @param department 对象
+   * 根据部门Id 修改部门信息
+   * @param department
+   * @throws CloudBusinessException
    */
-  Department getDepartmentByDepartment(Department department) throws CloudBusinessException;
+  void updateDepartmentById(Department department) throws CloudBusinessException;
 
   /**
-   * 查询部门信息 多个
-   *
-   * @param department 对象
+   * 根据部门Id 删除部门
+   * @param departmentId
+   * @throws CloudBusinessException
    */
-  List<Department> getDeoartmentsByDepartment(Department department) throws CloudBusinessException;
+  void deleteDepartmentById(String departmentId)throws  CloudBusinessException;
 
-
-
-
+  /**
+   * 分页查询部门
+   * @param pageInfo
+   * @return
+   * @throws CloudBusinessException
+   */
+  PageInfo getDepartmentByPage(PageInfo pageInfo)throws CloudBusinessException;
 
 }

@@ -1,6 +1,7 @@
 package com.kevin.cloud.department.api.model;
 
 import com.kevin.common.core.model.BaseModel;
+import java.util.Date;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,5 +18,10 @@ public class DepartmentUser extends BaseModel {
   private String departmentId;
   private String userId;
 
-
+  public DepartmentUser(String departmentId, String userId,String createdBy,String updatedBy) {
+    this.departmentId = departmentId;
+    this.userId = userId;
+    this.setCreatedBy(createdBy);
+    this.setUpdatedBy(updatedBy);
+  }
 }
